@@ -5,19 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.Deeksha.FoodDeliveryApp.exceptions.CategoryException;
 import com.Deeksha.FoodDeliveryApp.model.Category;
 import com.Deeksha.FoodDeliveryApp.service.CategoryService;
-
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/category")
@@ -28,7 +21,8 @@ public class CategoryServiceController {
 	
 	
 	@PostMapping("/add")
-	public ResponseEntity<Category> addCategory(@RequestBody Category category) throws CategoryException{
+	public ResponseEntity<Category> addCategory(@Valid @RequestBody Category category) throws CategoryException{
+		System.out.println(category);
 		Category newCategory = catService.addCategory(category);
 		return new ResponseEntity<Category>(newCategory, HttpStatus.CREATED); 
 	}

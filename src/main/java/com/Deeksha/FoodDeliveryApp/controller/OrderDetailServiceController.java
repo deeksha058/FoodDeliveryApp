@@ -17,8 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Deeksha.FoodDeliveryApp.authexceptions.AuthorizationException;
 import com.Deeksha.FoodDeliveryApp.authservice.UserSessionService;
-//import com.foodapp.authexceptions.AuthorizationException;
-//import com.foodapp.authservice.UserSessionService;
+
 import com.Deeksha.FoodDeliveryApp.exceptions.CustomerException;
 import com.Deeksha.FoodDeliveryApp.exceptions.OrderException;
 import com.Deeksha.FoodDeliveryApp.model.Item;

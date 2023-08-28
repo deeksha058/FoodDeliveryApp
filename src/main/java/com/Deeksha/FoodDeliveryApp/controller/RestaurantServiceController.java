@@ -37,7 +37,8 @@ public class RestaurantServiceController {
 	
 	@PostMapping("/add")
 	public ResponseEntity<Restaurant> saveResturant(@Valid @RequestBody Restaurant restaurant) throws RestaurantException {
-		
+
+		System.out.println(restaurant);
 		Restaurant newRestaurant = restService.addRestaurant(restaurant);
 		
 		return new ResponseEntity<Restaurant>(newRestaurant ,HttpStatus.CREATED);
@@ -46,6 +47,8 @@ public class RestaurantServiceController {
 	
 	@PutMapping("/update")
 	public ResponseEntity<Restaurant> updateResturant(@Valid @RequestBody Restaurant restaurant) throws RestaurantException{
+
+		if(restaurant.getRestaurantId() == null) restaurant.setRestaurantId(1);
 		
 		Restaurant updatedResturant=restService.updateRestaurant(restaurant);
 		

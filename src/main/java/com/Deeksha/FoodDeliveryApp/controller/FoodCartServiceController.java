@@ -3,14 +3,7 @@ package com.Deeksha.FoodDeliveryApp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.Deeksha.FoodDeliveryApp.authexceptions.AuthorizationException;
 import com.Deeksha.FoodDeliveryApp.authservice.UserSessionService;
@@ -18,8 +11,6 @@ import com.Deeksha.FoodDeliveryApp.exceptions.CartException;
 import com.Deeksha.FoodDeliveryApp.exceptions.ItemException;
 import com.Deeksha.FoodDeliveryApp.model.FoodCart;
 import com.Deeksha.FoodDeliveryApp.service.FoodCartService;
-
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
 @RequestMapping("/cart")
@@ -33,7 +24,7 @@ public class FoodCartServiceController {
 	
 	
 	@PostMapping("/register")
-	public ResponseEntity<FoodCart> saveCartDetails(@RequestParam String key,@RequestBody FoodCart fc) throws CartException, AuthorizationException
+	public ResponseEntity<FoodCart> saveCartDetails(@RequestParam String key, @RequestBody FoodCart fc) throws CartException, AuthorizationException
 	{
 				Integer sessionId = userSessionService.getUserSessionId(key);
 				

@@ -26,8 +26,7 @@ public class Item{
 	private String itemName;
 	private Integer quantity;
 	private Double cost;
-	
-//	@Embedded
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private Category category;
 }

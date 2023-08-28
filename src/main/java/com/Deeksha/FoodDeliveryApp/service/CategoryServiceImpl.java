@@ -16,9 +16,7 @@ public class CategoryServiceImpl implements CategoryService{
 	@Autowired
 	CategoryDAO categoryDAO;
 
-	
-	
-	
+
 	@Override
 	public Category addCategory(Category category) throws CategoryException {
 		Optional<Category> opt = categoryDAO.findById(category.getCategoryId());
